@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Mohit Lochab — Creative Content & AI Video Designer</title>
+    <meta name="description" content="Mohit Lochab — Creative Content & AI Video Designer. AI-powered videos, Instagram Reels, YouTube Shorts, Brand Identity. Faridabad, Haryana." />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* PREMIUM COLOR SYSTEM: Forest Green, Cream, Gold */
+        :root {
+            --forest: #1B4332;      /* primary deep green */
+            --forest-light: #2D6A4F;
+            --forest-mid: #2D5A48;
+            --cream: #F8F1E9;       /* soft cream background */
+            --cream-dark: #E9DFD3;
+            --gold: #C9A227;         /* elegant gold accent */
+            --gold-light: #DFB43A;
+            --gold-dim: #B28C1A;
+            --white: #FFFFFF;
+            --black: #111111;
+            --border-light: rgba(27, 67, 50, 0.12);
+            --border-gold: rgba(201, 162, 39, 0.25);
+            --shadow-sm: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+            --shadow-md: 0 20px 35px -12px rgba(0, 0, 0, 0.08);
+            --radius: 20px;
+            --radius-sm: 14px;
+        }
+
+        body {
+            background: var(--cream);
+            color: var(--forest);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* custom scroll */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--cream-dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 10px;
+        }
+
+        /* WELCOME OVERLAY (premium) */
+        #welcome {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(27, 67, 50, 0.97);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        .wbox {
+            text-align: center;
+            max-width: 520px;
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            border-radius: 36px;
+            padding: 3.2rem 2.8rem;
+            background: var(--cream);
+            color: var(--forest);
+            box-shadow: 0 30px 45px -20px rgba(0,0,0,0.3);
+            animation: wfade 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1) both;
+        }
+        @keyframes wfade {
+            from { opacity: 0; transform: scale(0.96) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        .wavatar {
+            width: 88px;
+            height: 88px;
+            border-radius: 50%;
+            background: var(--forest);
+            border: 2px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--gold);
+            margin: 0 auto 1.5rem;
+            letter-spacing: 1px;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+        }
+        .wtitle { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 0.6rem; }
+        .wname { font-size: 32px; font-weight: 800; color: var(--forest); margin-bottom: 0.4rem; letter-spacing: -0.5px; }
+        .wrole { font-size: 14px; color: #4A5B4F; margin-bottom: 2rem; line-height: 1.6; }
+        .wticker { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 2.2rem; }
+        .wpill { font-size: 11px; padding: 5px 14px; border-radius: 40px; background: var(--forest); color: var(--cream); border: none; font-weight: 500; letter-spacing: 0.3px; }
+        .wbtn { background: var(--gold); color: var(--forest); border: none; padding: 0.85rem 2.6rem; border-radius: 60px; font-size: 15px; font-weight: 700; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 4px 8px rgba(0,0,0,0.05); }
+        .wbtn:hover { background: var(--gold-light); transform: scale(1.02); }
+
+        /* NAVIGATION */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1rem 2.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(248, 241, 233, 0.92);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(201, 162, 39, 0.25);
+        }
+        .nlogo { font-size: 18px; font-weight: 800; color: var(--forest); letter-spacing: -0.3px; text-decoration: none; }
+        .nlinks { display: flex; gap: 2rem; align-items: center; }
+        .nlinks a { font-size: 13px; font-weight: 500; color: #2F4A3C; text-decoration: none; transition: color 0.2s; }
+        .nlinks a:hover { color: var(--gold); }
+        .nhire { background: var(--forest); color: var(--cream) !important; padding: 0.45rem 1.4rem; border-radius: 40px; font-weight: 600; transition: all 0.2s; }
+        .nhire:hover { background: var(--gold); color: var(--forest) !important; }
+
+        /* HERO SECTION */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 2rem 5rem;
+            position: relative;
+            background: radial-gradient(circle at 70% 20%, rgba(201,162,39,0.03) 0%, transparent 70%);
+        }
+        .hbadge { display: inline-flex; align-items: center; gap: 8px; background: rgba(27,67,50,0.08); backdrop-filter: blur(4px); padding: 0.4rem 1.3rem; border-radius: 60px; border: 0.5px solid var(--border-gold); font-size: 12px; font-weight: 500; margin-bottom: 2rem; color: var(--forest); }
+        .hdot { width: 8px; height: 8px; background: var(--gold); border-radius: 50%; animation: pulseGold 2s infinite; }
+        @keyframes pulseGold { 0% { opacity: 0.4; transform: scale(0.8); } 100% { opacity: 1; transform: scale(1.2); } }
+        .hero h1 { font-size: clamp(3rem, 8vw, 5.2rem); font-weight: 800; line-height: 1.08; letter-spacing: -2px; color: var(--forest); margin-bottom: 0.8rem; }
+        .hero h1 em { font-style: italic; color: var(--gold); font-weight: 800; }
+        .hero-sub-line { font-size: 13px; letter-spacing: 3.5px; color: #6F5E3A; text-transform: uppercase; margin-bottom: 1.5rem; font-weight: 500; }
+        .hero-desc { font-size: 16px; color: #3C5545; max-width: 560px; line-height: 1.7; margin-bottom: 2.8rem; }
+        .btn-w { background: var(--forest); color: var(--cream); padding: 0.8rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.2s; box-shadow: var(--shadow-sm); }
+        .btn-w:hover { background: var(--gold); color: var(--forest); transform: translateY(-2px); }
+        .btn-ghost { border: 1.5px solid var(--forest); color: var(--forest); padding: 0.8rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: 0.2s; background: transparent; }
+        .btn-ghost:hover { border-color: var(--gold); color: var(--gold); background: rgba(201,162,39,0.05); }
+        .hstats { display: flex; gap: 3.5rem; justify-content: center; flex-wrap: wrap; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-light); }
+        .hstat .n { font-size: 2.4rem; font-weight: 800; color: var(--forest); letter-spacing: -1px; }
+        .hstat .l { font-size: 11px; color: #7B6B42; font-weight: 500; text-transform: uppercase; }
+
+        /* MARQUEE (gold/forest) */
+        .marquee-wrap { overflow: hidden; padding: 1.2rem 0; background: var(--forest); border-top: 1px solid var(--gold-dim); border-bottom: 1px solid var(--gold-dim); }
+        .marquee-track { display: flex; gap: 2.5rem; animation: mscroll 28s linear infinite; width: max-content; }
+        .marquee-item { font-size: 13px; font-weight: 500; color: var(--gold-light); letter-spacing: 1.2px; text-transform: uppercase; white-space: nowrap; }
+        .marquee-item span { color: var(--cream); margin: 0 0.8rem; }
+        @keyframes mscroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+        /* global section */
+        .sec { padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; }
+        .sec-eyebrow { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 0.8rem; }
+        .sec-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -1.5px; color: var(--forest); line-height: 1.2; margin-bottom: 0.8rem; }
+        .sec-title em { color: var(--gold); font-style: italic; }
+        .sec-body { font-size: 15px; color: #3C5545; max-width: 620px; line-height: 1.7; margin-bottom: 2rem; }
+        hr.sdiv { border: none; border-top: 1px solid var(--border-light); margin: 1.8rem 0 2.5rem; }
+
+        /* ABOUT */
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+        @media(max-width:700px){ .about-grid { grid-template-columns: 1fr; } }
+        .about-left p { font-size: 15px; color: #2F4A3C; line-height: 1.8; margin-bottom: 1rem; }
+        .about-left p strong { color: var(--forest); font-weight: 700; }
+        .tool-pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 1.5rem; }
+        .tpill { font-size: 12px; padding: 0.4rem 1rem; border-radius: 40px; background: var(--forest); color: var(--cream); font-weight: 500; }
+        .stat-block { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem; }
+        .scard { background: var(--cream-dark); border-radius: var(--radius-sm); padding: 1.2rem; border-left: 4px solid var(--gold); box-shadow: var(--shadow-sm); }
+        .scard .snum { font-size: 2rem; font-weight: 800; color: var(--forest); letter-spacing: -1px; }
+        .scard .slbl { font-size: 11px; color: #6F5E3A; margin-top: 4px; font-weight: 500; }
+        .exp-row { display: flex; justify-content: space-between; padding: 1rem 0; border-bottom: 0.5px solid var(--border-light); gap: 1rem; }
+        .exp-jobtitle { font-size: 13px; font-weight: 700; color: var(--forest); }
+        .exp-co { font-size: 12px; color: #6A7C6E; margin-top: 2px; }
+        .exp-yr { font-size: 11px; color: var(--gold); font-weight: 600; white-space: nowrap; }
+
+        /* SKILLS premium */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.2rem; }
+        .skill-card { background: var(--cream-dark); border-radius: var(--radius-sm); padding: 1.5rem; transition: all 0.2s; border: 1px solid transparent; }
+        .skill-card:hover { border-color: var(--gold); transform: translateY(-3px); background: var(--cream); box-shadow: var(--shadow-md); }
+        .sk-icon { font-size: 28px; margin-bottom: 1rem; }
+        .sk-title { font-size: 15px; font-weight: 700; color: var(--forest); margin-bottom: 0.6rem; }
+        .sk-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+        .sk-tag { font-size: 10px; padding: 4px 10px; border-radius: 30px; background: var(--forest); color: var(--cream); font-weight: 500; }
+
+        /* PROJECTS SECTION */
+        .projects-intro { font-size: 14px; color: #6A7C6E; margin-bottom: 2rem; line-height: 1.6; }
+        .proj-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1.5rem; }
+        .pcard { background: var(--cream); border-radius: var(--radius-sm); padding: 1.5rem; border: 1px solid var(--border-light); transition: all 0.25s; box-shadow: var(--shadow-sm); }
+        .pcard:hover { border-color: var(--gold); transform: translateY(-3px); box-shadow: var(--shadow-md); }
+        .pcard-top { display: flex; justify-content: space-between; margin-bottom: 0.8rem; }
+        .ptag { font-size: 10px; font-weight: 700; letter-spacing: 1px; padding: 4px 12px; border-radius: 30px; background: var(--forest); color: var(--cream); text-transform: uppercase; }
+        .pnum { font-size: 11px; font-weight: 600; color: var(--gold); }
+        .ptitle { font-size: 16px; font-weight: 700; color: var(--forest); margin-bottom: 0.5rem; }
+        .pdesc { font-size: 12px; color: #4A5B4F; line-height: 1.6; margin-bottom: 1rem; }
+        .click-btn {
+            background: var(--gold);
+            border: none;
+            color: var(--forest);
+            font-weight: 700;
+            font-size: 13px;
+            padding: 8px 16px;
+            border-radius: 40px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.2s ease;
+            margin-top: 8px;
+            font-family: inherit;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .click-btn:hover {
+            background: var(--gold-light);
+            transform: scale(0.98);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        .plink-multi {
+            font-size: 11px;
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+            border-top: 0.5px solid var(--border-light);
+            padding-top: 10px;
+        }
+        .open-link-badge {
+            font-size: 11px;
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .open-link-badge:hover { color: var(--forest); }
+
+        /* BRANDS */
+        .brands-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.8rem; }
+        .bcard { background: var(--cream); border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--border-light); transition: all 0.2s; }
+        .bcard:hover { border-color: var(--gold); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+        .bcard-img { height: 150px; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 800; background: linear-gradient(135deg, #E9DFD3, #F8F1E9); color: var(--forest); border-bottom: 2px solid var(--gold); }
+        .bcard-body { padding: 1.5rem; }
+        .bcard-eyebrow { font-size: 10px; letter-spacing: 2px; color: var(--gold); font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem; }
+        .bcard-title { font-size: 18px; font-weight: 700; color: var(--forest); margin-bottom: 0.6rem; }
+        .bcard-desc { font-size: 13px; color: #4A5B4F; line-height: 1.6; margin-bottom: 1rem; }
+        .btags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1rem; }
+        .btag { background: var(--forest); color: var(--cream); font-size: 10px; padding: 4px 12px; border-radius: 20px; font-weight: 500; }
+        .blink { font-size: 13px; font-weight: 600; color: var(--gold); text-decoration: none; display: inline-flex; align-items: center; gap: 5px; }
+        .blink:hover { color: var(--forest); }
+
+        /* CONTACT */
+        .contact-wrap { max-width: 800px; margin: 0 auto; }
+        .contact-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; margin-top: 2rem; }
+        .ccard { background: var(--cream-dark); border-radius: var(--radius-sm); padding: 1.2rem; display: flex; align-items: center; gap: 1rem; border-left: 4px solid var(--gold); transition: 0.2s; }
+        .ccard-icon { font-size: 24px; width: 48px; height: 48px; background: var(--forest); border-radius: 14px; display: flex; align-items: center; justify-content: center; color: var(--gold); }
+        .ccard-lbl { font-size: 10px; letter-spacing: 1px; color: var(--gold); text-transform: uppercase; margin-bottom: 4px; font-weight: 600; }
+        .ccard-val a, .ccard-val { color: var(--forest); font-weight: 500; text-decoration: none; font-size: 13px; }
+        .ccard-val a:hover { color: var(--gold); }
+
+        footer { text-align: center; padding: 2.5rem; border-top: 1px solid var(--border-light); background: var(--cream-dark); }
+        footer p { font-size: 12px; color: #6A7C6E; }
+        footer strong { color: var(--forest); font-weight: 700; }
+
+        /* FIXED WHATSAPP BUTTON (bottom right) */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 1000;
+            background-color: #25D366;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.2s ease;
+            cursor: pointer;
+            text-decoration: none;
+            border: 2px solid var(--cream);
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.08);
+            background-color: #20b859;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+        }
+        .whatsapp-float svg {
+            width: 34px;
+            height: 34px;
+            fill: white;
+        }
+        @media (max-width: 600px) {
+            .whatsapp-float {
+                width: 52px;
+                height: 52px;
+                bottom: 20px;
+                right: 20px;
+            }
+            .whatsapp-float svg {
+                width: 28px;
+                height: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- WELCOME OVERLAY -->
+<div id="welcome">
+    <div class="wbox">
+        <div class="wavatar">ML</div>
+        <div class="wtitle">Portfolio 2025</div>
+        <div class="wname">Mohit Lochab</div>
+        <div class="wrole">Creative Content & AI Video Designer — <br>crafting scroll-stopping content & premium brand narratives.</div>
+        <div class="wticker"><span class="wpill">AI Video</span><span class="wpill">Reels</span><span class="wpill">Brand Identity</span><span class="wpill">Content Strategy</span></div>
+        <button class="wbtn" onclick="document.getElementById('welcome').style.display='none'">Enter Portfolio →</button>
+    </div>
+</div>
+
+<!-- NAV -->
+<nav>
+    <a class="nlogo" href="#">M.LOCHAB</a>
+    <div class="nlinks">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Work</a>
+        <a href="#contact">Contact</a>
+        <a class="nhire" href="mailto:mohit1997lochab@gmail.com">Hire Me</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hbadge"><span class="hdot"></span> Available for opportunities — premium AI content</div>
+    <h1>Creative <em>Content</em><br>& AI Design</h1>
+    <div class="hero-sub-line">AI VIDEO · REELS · SOCIAL MEDIA · BRANDING</div>
+    <p class="hero-desc">I craft scroll-stopping content, build brands that breathe, and turn AI tools into competitive advantages. 7+ years across UI/UX, creative thinking, and AI-powered storytelling.</p>
+    <div class="hbtns">
+        <a href="#projects" class="btn-w">View My Work</a>
+        <a href="#contact" class="btn-ghost">Let's Talk</a>
+    </div>
+    <div class="hstats">
+        <div class="hstat"><div class="n">7</div><div class="l">Years Exp.</div></div>
+        <div class="hstat"><div class="n">43+</div><div class="l">Live Projects</div></div>
+        <div class="hstat"><div class="n">5+</div><div class="l">AI Tools</div></div>
+        <div class="hstat"><div class="n">∞</div><div class="l">Ideas / Day</div></div>
+    </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap"><div class="marquee-track" id="mtrack"></div></div>
+
+<!-- ABOUT -->
+<section class="sec" id="about">
+    <div class="sec-eyebrow">About Me</div>
+    <div class="sec-title">Where <em>creativity</em><br>meets strategy</div>
+    <hr class="sdiv" />
+    <div class="about-grid">
+        <div class="about-left">
+            <p>I'm <strong>Mohit Lochab</strong> — Faridabad-based Creative Content & AI Video Designer with <strong>7 years</strong> across AI video creation, social media, graphic design, and content strategy.</p>
+            <p>I don't just make things look good; I make them <strong>work</strong>. My edge? Turning AI tools like Runway, Pika, and Veo into scroll-stopping content that drives real engagement.</p>
+            <p>Currently at <strong>JBH Tech Innovation</strong>, I create AI-powered video content for Instagram Reels and YouTube Shorts — supporting product marketing campaigns that actually convert.</p>
+            <div class="tool-pills"><span class="tpill">Runway</span><span class="tpill">Pika · Veo</span><span class="tpill">CapCut</span><span class="tpill">Premiere Pro</span><span class="tpill">Photoshop</span><span class="tpill">Canva</span></div>
+        </div>
+        <div class="about-right">
+            <div class="stat-block"><div class="scard"><div class="snum">7+</div><div class="slbl">Years of Experience across content & design</div></div><div class="scard"><div class="snum">43+</div><div class="slbl">Live Projects</div></div><div class="scard"><div class="snum">5+</div><div class="slbl">AI Tools mastered</div></div><div class="scard"><div class="snum">∞</div><div class="slbl">Relentlessly curious</div></div></div>
+            <div class="exp-list"><div class="exp-row"><div><div class="exp-jobtitle">Creative Content & AI Video Designer</div><div class="exp-co">JBH Tech Innovation</div></div><div class="exp-yr">Oct 2025 – Present</div></div><div class="exp-row"><div><div class="exp-jobtitle">Content Creator & Social Media Designer</div><div class="exp-co">Hodor Info Tech</div></div><div class="exp-yr">Nov 2024 – Oct 2025</div></div><div class="exp-row"><div><div class="exp-jobtitle">Content & Design Trainee</div><div class="exp-co">Agdova Technologies</div></div><div class="exp-yr">Jan – Nov 2024</div></div><div class="exp-row"><div><div class="exp-jobtitle">Graphic Design Intern</div><div class="exp-co">Axpert Exhibits</div></div><div class="exp-yr">Jun – Dec 2023</div></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section class="sec" id="skills" style="padding-top:0;">
+    <div class="sec-eyebrow">What I Do</div>
+    <div class="sec-title">Skills & <em>Expertise</em></div>
+    <hr class="sdiv" />
+    <div class="skills-grid">
+        <div class="skill-card"><div class="sk-icon">🎬</div><div class="sk-title">AI Video Creation</div><div class="sk-tags"><span class="sk-tag">Runway</span><span class="sk-tag">Pika</span><span class="sk-tag">Veo</span></div></div>
+        <div class="skill-card"><div class="sk-icon">✂️</div><div class="sk-title">Video Editing</div><div class="sk-tags"><span class="sk-tag">CapCut</span><span class="sk-tag">Premiere Pro</span></div></div>
+        <div class="skill-card"><div class="sk-icon">🎨</div><div class="sk-title">Graphic Design</div><div class="sk-tags"><span class="sk-tag">Photoshop</span><span class="sk-tag">Canva</span></div></div>
+        <div class="skill-card"><div class="sk-icon">📱</div><div class="sk-title">Social Media</div><div class="sk-tags"><span class="sk-tag">Instagram</span><span class="sk-tag">YouTube</span></div></div>
+        <div class="skill-card"><div class="sk-icon">📢</div><div class="sk-title">Content Strategy</div><div class="sk-tags"><span class="sk-tag">Reels</span><span class="sk-tag">Podcast Repurposing</span></div></div>
+        <div class="skill-card"><div class="sk-icon">✨</div><div class="sk-title">Storytelling</div><div class="sk-tags"><span class="sk-tag">Creativity</span><span class="sk-tag">Collaboration</span></div></div>
+    </div>
+</section>
+
+<!-- PROJECTS (removed input, added click button that opens project link) -->
+<section class="sec" id="projects" style="padding-top:0;">
+    <div class="sec-eyebrow">Selected Work</div>
+    <div class="sec-title">Projects & <em>Case Studies</em></div>
+    <p class="projects-intro">Live content, campaigns, and real brand impact — from AI-generated video to viral social media strategies.<br>Click the button below each card to open the live project link.</p>
+    <hr class="sdiv" />
+    <div class="proj-grid" id="pgrid"></div>
+</section>
+
+<!-- BRANDS -->
+<section class="sec" id="brands" style="padding-top:0;">
+    <div class="sec-eyebrow">Social Media & Brand Management</div>
+    <div class="sec-title">Brands I've <em>Built & Grown</em></div>
+    <hr class="sdiv" />
+    <div class="brands-grid">
+        <div class="bcard"><div class="bcard-img" style="background:linear-gradient(135deg,#E9DFD3,#F8F1E9);color:#1B4332;">cutie<br>beauty</div><div class="bcard-body"><div class="bcard-eyebrow">Beauty & Lifestyle</div><div class="bcard-title">Cutie Beauty — Brand Identity</div><div class="bcard-desc">Created cohesive brand aesthetic, reels, carousels driving engagement.</div><div class="btags"><span class="btag">Reels</span><span class="btag">Strategy</span></div><a href="https://www.instagram.com/cutie_beauty_official?igsh=MWd6cGdtdjNxZXc2cQ==" target="_blank" class="blink">View on Instagram ↗</a></div></div>
+        <div class="bcard"><div class="bcard-img" style="background:linear-gradient(135deg,#E9DFD3,#F8F1E9);">vedifai</div><div class="bcard-body"><div class="bcard-eyebrow">EdTech · AI Learning</div><div class="bcard-title">VedifAI — AI Platform</div><div class="bcard-desc">AI video content & social creatives for hybrid learning.</div><div class="btags"><span class="btag">AI Content</span></div><a href="https://vedifai.com/#home" target="_blank" class="blink">vedifai.com ↗</a></div></div>
+        <div class="bcard"><div class="bcard-img" style="background:linear-gradient(135deg,#E9DFD3,#F8F1E9);">watlair</div><div class="bcard-body"><div class="bcard-eyebrow">Brand Marketing</div><div class="bcard-title">WatLair — Campaigns</div><div class="bcard-desc">End-to-end AI video storytelling & social campaigns.</div><div class="btags"><span class="btag">AI Video</span></div><a href="https://www.watlair.com/" target="_blank" class="blink">watlair.com ↗</a></div></div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec" id="contact" style="padding-top:0;">
+    <div class="contact-wrap"><div class="sec-eyebrow">Get In Touch</div><div class="sec-title">Let's create something <em>remarkable</em></div><p class="sec-body">Open to full-time roles and creative collaborations. If you have a vision, I have the skills to bring it to life.</p>
+    <div class="contact-cards"><div class="ccard"><div class="ccard-icon">📞</div><div><div class="ccard-lbl">Phone</div><div class="ccard-val"><a href="tel:+919650678426">+91 9650678426</a></div></div></div><div class="ccard"><div class="ccard-icon">✉️</div><div><div class="ccard-lbl">Email</div><div class="ccard-val"><a href="mailto:mohit1997lochab@gmail.com">mohit1997lochab@gmail.com</a></div></div></div><div class="ccard"><div class="ccard-icon">📍</div><div><div class="ccard-lbl">Location</div><div class="ccard-val">Sec. 30, Faridabad, Haryana 121003</div></div></div></div></div>
+</section>
+
+<footer><p><strong>© 2025 Mohit Lochab</strong> — All rights reserved</p><p>Creative Content & AI Video Designer · Faridabad, IN</p><p style="margin-top:.3rem;">Certified Graphics Designer · M.Tech CSE · B.Tech ECE</p></footer>
+
+<!-- FIXED WHATSAPP BUTTON -->
+<a href="https://wa.me/919650678426?text=Hello%20Mohit%2C%20I%20came%20across%20your%20portfolio%20and%20would%20love%20to%20discuss%20a%20creative%20project." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12.032 2.001c-5.517 0-10 4.483-10 10 0 1.892.528 3.664 1.45 5.188l-1.517 4.655 4.773-1.452c1.485.877 3.19 1.386 5.012 1.386 5.517 0 10-4.483 10-10s-4.483-10-10-10zm0 18.318c-1.636 0-3.159-.448-4.485-1.29l-.322-.19-3.01.916.98-2.977-.21-.336c-.908-1.352-1.42-2.94-1.42-4.637 0-4.664 3.793-8.457 8.457-8.457s8.457 3.793 8.457 8.457-3.793 8.457-8.457 8.457zm4.636-6.324c-.254-.127-1.5-.74-1.732-.825-.232-.085-.4-.127-.568.127-.169.254-.655.826-.803.996-.147.169-.294.191-.548.064-.254-.127-1.072-.395-2.042-1.26-.755-.674-1.266-1.507-1.415-1.762-.148-.255-.016-.393.111-.52.114-.114.254-.297.381-.446.127-.149.169-.254.254-.424.085-.17.042-.318-.021-.446-.064-.127-.568-1.367-.779-1.872-.204-.493-.411-.425-.568-.433-.147-.008-.317-.008-.486-.008-.169 0-.444.063-.677.318-.233.254-.889.869-.889 2.12 0 1.252.911 2.462 1.038 2.633.127.17 1.793 2.736 4.344 3.836.607.262 1.08.419 1.45.536.609.194 1.163.167 1.602.101.488-.074 1.5-.613 1.712-1.204.212-.591.212-1.098.148-1.204-.063-.106-.233-.17-.487-.297z"/>
+    </svg>
+</a>
+
+<script>
+    // Marquee
+    const tools = ["AI Video Creation", "Runway", "Pika", "Veo", "Instagram Reels", "YouTube Shorts", "CapCut", "Premiere Pro", "Photoshop", "Canva", "Brand Identity", "Content Strategy", "Storytelling"];
+    const track = document.getElementById('mtrack');
+    [...tools, ...tools].forEach(item => { let div = document.createElement('div'); div.className = 'marquee-item'; div.innerHTML = item + '<span>✦</span>'; track.appendChild(div); });
+
+    // Project Data (with unique links)
+    const projectsData = [
+        { tag: "AI VIDEO", title: "AI Video Content Creation", desc: "AI-generated videos using Runway & Pika for Reels & Shorts product campaigns.", link: "https://www.instagram.com/trans_global_print_?igsh=MW9qa2s2MGI1bW9uYQ==" },
+        { tag: "YOUTUBE", title: "YouTube & Social Media Content", desc: "Designed thumbnails and edited short-form videos to improve engagement.", link: "https://www.youtube.com/@VedifaiOfficial" },
+        { tag: "BRANDING", title: "Social Media Brand Management", desc: "End-to-end content strategy — reels, carousels across Instagram & LinkedIn.", link: "https://www.instagram.com/chailshamlet?igsh=cnRxd2tvdzN4bXlz" },
+        { tag: "REELS", title: "Instagram Reels Production", desc: "Scroll-stopping reels with AI-enhanced visuals and storytelling.", link: "https://www.instagram.com/dentaluxe_clinic?igsh=MW8zMDQ4dW1zYThpaw==" },
+        { tag: "DESIGN", title: "Marketing Creatives & Thumbnails", desc: "Eye-catching thumbnails, carousels designed in Photoshop & Canva.", link: "https://www.instagram.com/bachelor_party_hub?igsh=MWExZWt3cHgxbDdsNg==" },
+        { tag: "PODCAST", title: "Podcast Content Repurposing", desc: "Transformed long-form podcast into short-form social videos to maximize reach.", link: "https://www.youtube.com/@VedifaiOfficial" },
+        { tag: "CAMPAIGN", title: "Product Marketing Campaigns", desc: "Concept-to-final edited video campaigns aligned with brand identity.", link: "https://www.instagram.com/printdoot?igsh=cGpkMjRvYzh4bGRk" },
+        { tag: "EDTECH", title: "EdTech Platform Content", desc: "AI-powered educational video content for VedifAI's learning platform.", link: "https://www.instagram.com/thevedifai?igsh=MTkzZTM3dGkwaG9taw==" }
+    ];
+
+    const pgrid = document.getElementById('pgrid');
+    projectsData.forEach((proj, idx) => {
+        const card = document.createElement('div');
+        card.className = 'pcard';
+        card.innerHTML = `
+            <div class="pcard-top"><span class="ptag">${proj.tag}</span><span class="pnum">0${idx+1}</span></div>
+            <div class="ptitle">${proj.title}</div>
+            <div class="pdesc">${proj.desc}</div>
+            <button class="click-btn" data-link="${proj.link}">🔗 Click Me → Open Project</button>
+            <div class="plink-multi"><span class="open-link-badge">⚡ one‑click access</span></div>
+        `;
+        const btn = card.querySelector('.click-btn');
+        btn.addEventListener('click', (e) => {
+            const url = btn.getAttribute('data-link');
+            if(url) window.open(url, '_blank');
+        });
+        pgrid.appendChild(card);
+    });
+</script>
+</body>
+</html>
